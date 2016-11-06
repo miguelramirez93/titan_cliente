@@ -1,0 +1,31 @@
+<div class="jumbotron text-center">
+  <h1>Consulta de Apropiación Inicial</h1>
+
+  <table style="width:95%;">
+    <tr>
+      <td width="5%">
+      </td>
+      <td width="20%">
+        <div>
+          <form>
+            <label for="select_vigencia">Vigencia </label>
+            <select name="select_vigencia" id="select_vigencia" ng-model="selectVigencia" ng-change="actualiza_rubros()">
+              <option selected disabled>Seleccione...</option>
+              <option selected>2016</option>
+              <option>2015</option>
+              <option>2014</option>
+              <option>2013</option>
+              <option>2012</option>
+              <option>2011</option>
+              <option>2010</option>
+            </select>
+          </form>
+        </div>
+      </td>
+      <td>
+        <div ui-grid="gridOptions" class="myGrid"></div>
+      </td>
+    </tr>
+  </table>
+
+</div>

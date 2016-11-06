@@ -1,0 +1,69 @@
+<div class="row jumbotron">
+<button class="btn" ng-click='ShowForm()' ng-hide="formVisibility">Añadir Nomina</button>
+    <div  class="col-sm-12 panel panel-default" ng-show='formVisibility' >
+        
+
+            <h2>Registro de Nomina</h2>
+          <form>
+             
+          <div class="form-group row">
+            <label for="input_nombre" class="col-sm-5 col-form-label">Nombre de la Nomina</label>
+            <input name="input_nombre" type="text" ng-model="nombreNomina" placeholder="Nombre">
+          </div>
+          <div class="form-group row">
+            <label for="input_descripcion" class="col-sm-5 col-form-label">Descripción</label>
+            <textarea name="input_descripcion" ng-model="descripcionNomina"  placeholder="Descripción"></textarea>
+
+          </div>
+          <div class="form-group row">
+            <label for="select_vinculacion_nomina" class="col-sm-5 col-form-label">Vinculación </label>
+            <select name="select_vinculacion_nomina" id="select_vinculacion_nomina" ng-model="selectVinculacion">
+              <option selected disabled>Seleccione...</option>
+              <option selected="selected" value="2">HC</option>
+            </select>
+          </div>
+           <div class="form-group row">
+            <label for="select_tipo_nomina" class="col-sm-5 col-form-label">Tipo </label>
+            <select name="select_tipo_nomina" id="select_tipo_nomina" ng-model="selectTipoNomina">
+              <option selected disabled>Seleccione...</option>
+              <option selected="selected" value="Periodica">Periodica</option>
+              <option selected="selected" value="Esporadica">Esporadica</option>
+            </select>
+          </div>
+           <div class="form-group row">
+            <label for="select_estado_nomina" class="col-sm-5 col-form-label">Estado </label>
+            <select name="select_estado_nomina" id="select_estado_nomina" ng-model="selectEstado">
+              <option selected disabled>Seleccione...</option>
+              <option selected="selected" value="Activo">Activo</option>
+              <option selected="selected" value="Inactivo">Inactivo</option>
+            </select>
+          </div>
+           <div class="form-group row">
+            <label for="input_periodo" class="col-sm-5 col-form-label">Periodo</label>
+             <input name="input_periodo" type="text"  ng-model="periodoNomina" placeholder=">Periodo">
+
+          </div>
+            <button ng-click='limpiar()' class="btn">Cancelar</button>
+            <button ng-click='registrar_nomina()' class="btn">Registrar</button>
+
+         </form>
+        
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row jumbotron">
+       <h2>Nominas Registradas</h2>
+
+          <table  style="width:95%;">
+            <tr>
+              <td width="10%">
+              </td>
+
+              <td>
+                <div  ui-grid="gridOptions"  class="myGrid"></div>
+              </td>
+            </tr>
+          </table>
+    </div>
