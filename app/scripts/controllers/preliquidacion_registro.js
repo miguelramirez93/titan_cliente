@@ -7,8 +7,11 @@
  * # RubroConsultaCtrl
  * Controller of the nixClienteYeoApp
  */
-angular.module('titanClienteYeoApp')
-  .controller('PreliquidacionRegistroCtrl', function ($scope,CONFIG,nomina,$http) {
+var app = angular.module('titanClienteYeoApp')
+  app.factory("preliquidacion",function(){
+        return {};
+  })
+  .controller('PreliquidacionRegistroCtrl', function ($scope,CONFIG,nomina,preliquidacion,$window,$http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -36,13 +39,15 @@ angular.module('titanClienteYeoApp')
         {field: 'Id',             visible : false},
         {field: 'Nombre', width: '20%',  displayName: 'Nombre' },
         {field: 'Descripcion',         width: '30%'},
-        {field: 'Fecha',    width: '15%', displayName: 'F registro' },
-        {field: 'FechaInicio',    width: '15%'},
-        {field: 'FechaFin',      width: '15%'},
+        {field: 'Fecha',    width: '15%', displayName: 'F registro', cellTemplate: '<span>{{row.entity.Fecha | date:"yyyy-MM-dd" :"+0900"}}</span>'},
+        {field: 'FechaInicio',    width: '15%', cellTemplate: '<span>{{row.entity.FechaInicio | date:"yyyy-MM-dd":"+0900"}}</span>'},
+        {field: 'FechaFin',      width: '15%' , cellTemplate: '<span>{{row.entity.FechaFin | date:"yyyy-MM-dd":"+0900"}}</span>'},
         {field: 'Estado',         width: '10%'},
-        {field: 'Opciones',         width: '10%', cellTemplate: '<button class="btn" ng-click="grid.appScope.generar_preliquidacion(row)">Generar</button>'}
-      ]
+        {field: 'Opciones',         width: '30%',
+                 cellTemplate: '<button class="btn" ng-click="grid.appScope.generar_preliquidacion(row)">Generar</button><button class="btn" ng-click="grid.appScope.detalle_preliquidacion(row)">Detalle</button>'},
 
+      ]
+//| date:'yyyy-MM-dd'
     };
      $http.get(CONFIG.APIURLCRUD+'preliquidacion?limit=0&query=Nomina.Id:'+$scope.nomina.Id+'&sortby=Id&order=desc').then(function(response) {
       $scope.gridOptions.data = response.data;
@@ -92,5 +97,12 @@ angular.module('titanClienteYeoApp')
                   alert(response.data);
                  });
      };
+
+     $scope.detalle_preliquidacion = function(row){
+        $scope.preliquidacion = preliquidacion;
+        $scope.preliquidacion.Id = row.entity.Id;
+        $window.location.href = '#/preliquidacion_detalle';
+     };
         
   });     
+     

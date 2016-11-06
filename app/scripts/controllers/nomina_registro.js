@@ -40,7 +40,7 @@ var app = angular.module('titanClienteYeoApp')
         {field: 'TipoNomina',      width: '30%'},
         {field: 'Estado',         width: '10%'},
         {field: 'Periodo',         width: '10%'},
-        {field: 'Opciones',         width: '30%', cellTemplate: '<button class="btn" ng-click="grid.appScope.consulta_preliquidacion(row)">preliquidaciones</button>'}
+        {field: 'Opciones',         width: '30%', cellTemplate: '<button class="btn" ng-click="grid.appScope.consulta_preliquidacion(row)">Preliquidaciones</button>'}
       ]
 
     };

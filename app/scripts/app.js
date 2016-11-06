@@ -24,6 +24,8 @@ angular
     'ui.grid.cellNav',
     'ui.grid.treeView',
     'ui.grid.selection',
+    'ui.grid.resizeColumns',
+    'ui.grid.pagination',
     'ngMaterial'
   ])
   .config(function ($routeProvider) {
@@ -47,6 +49,11 @@ angular
         templateUrl: 'views/preliquidacion_registro.html',
         controller: 'PreliquidacionRegistroCtrl',
         controllerAs: 'preliquidacionregistro'
+      })
+      .when('/preliquidacion_detalle', {
+        templateUrl: 'views/preliquidacion_detalle.html',
+        controller: 'PreliquidacionDetalleCtrl',
+        controllerAs: 'preliquidaciondetalle'
       })
       .otherwise({
         redirectTo: '/'

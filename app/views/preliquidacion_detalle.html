@@ -1,0 +1,22 @@
+ <div class="alert alert-warning text-center" ng-show='loading'>  
+            <div class="row">
+              <h1 class="col-sm-7">Cargando Detalle...</h1>    
+              <div class="loader col-sm-5" ></div>
+            </div>
+</div>
+<div class="row jumbotron">
+        <span id ="fecha">fecha actual: {{CurrentDate | date:'yyyy-MM-dd'}}</span>
+       <h2>Detalle de la preliquidación:</h2>
+
+          <table  style="width:95%;">
+            <tr>
+              <td width="10%">
+              </td>
+
+              <td>
+                <div  ui-grid="gridOptions"  ui-grid-selection class="myGrid"></div>
+              </td>
+            </tr>
+          </table>
+           <button  class="btn">Liquidar Seleccionados</button>
+    </div>
