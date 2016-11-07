@@ -85,6 +85,7 @@ var app = angular.module('titanClienteYeoApp')
         $scope.nomina = nomina;
         $scope.nomina.Id = row.entity.Id;
         $scope.nomina.Vinculacion = row.entity.Vinculacion;
+        $scope.nomina.Periodo = row.entity.Periodo;
         $window.location.href = '#/preliquidacion_registro';
 
       };

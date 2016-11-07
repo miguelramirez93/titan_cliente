@@ -92,7 +92,7 @@ var app = angular.module('titanClienteYeoApp')
     
      $scope.generar_preliquidacion = function(row){
         $scope.loading = true;
-        $http.get(CONFIG.APIURLMID+'preliquidacion/Generar?tnomina='+$scope.nomina.Vinculacion+'&tdominio=1&preliquidacion='+row.entity.Id).then(function(response) {
+        $http.get(CONFIG.APIURLMID+'preliquidacion/Generar?tnomina='+$scope.nomina.Vinculacion+'&tdominio=1&preliquidacion='+row.entity.Id+'&periodo='+$scope.nomina.Periodo).then(function(response) {
                   $scope.loading = false;
                   alert(response.data);
                  });
