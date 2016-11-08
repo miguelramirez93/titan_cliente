@@ -9,8 +9,8 @@
  */
 var app = angular.module('titanClienteYeoApp')
 	app.constant('CONFIG', {
-	APIURLCRUD: "http://localhost:8081/v1/",
-	APIURLMID: "http://localhost:8082/v1/"
+	APIURLCRUD: "http://10.20.2.129:8081/v1/",
+	APIURLMID: "http://10.20.2.129:8082/v1/"
 })
   .controller('MainCtrl', function () {
     this.awesomeThings = [

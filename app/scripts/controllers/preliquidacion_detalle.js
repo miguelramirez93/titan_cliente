@@ -52,10 +52,10 @@ angular.module('titanClienteYeoApp')
       columnDefs : [
         {field: 'Id', width: '30%',   visible : false },
         {field: 'DetalleNovedad.Novedad.Nombre', width: '15%' ,  displayName: 'Nombre'},
-        {field: 'DetalleNovedad.Novedad.Descripcion',    width: '30%' , displayName: 'Descripcion'},
+        {field: 'DetalleNovedad.Descripcion',    width: '30%' , displayName: 'Descripcion'},
         {field: 'DetalleNovedad.Novedad.IdProveedor.NomProveedor',    width: '15%',  displayName: 'Proveedor'},
         {field: 'DetalleNovedad.Novedad.Naturaleza',    width: '30%' , displayName: 'Naturaleza'},
-        {field: 'DetalleNovedad.Novedad.Valor',    width: '30%' , displayName: 'Valor'}
+        {field: 'DetalleNovedad.Valor',    width: '30%' , displayName: 'Valor'}
       ]
     };
 
@@ -86,7 +86,7 @@ angular.module('titanClienteYeoApp')
 
      
      $scope.ver_novedades_aplicadas = function(row){
-       $http.get(CONFIG.APIURLCRUD+'novedad_aplicada?query=DetallePreliquidacion.Id:'+row.entity.Id).then(function(response) {
+       $http.get(CONFIG.APIURLCRUD+'novedad_aplicada?limit00&query=DetallePreliquidacion.Id:'+row.entity.Id).then(function(response) {
           if(response.data === null){
             $scope.mensaje = "Sin Novedades Aplicadas para esta Nomina.";
           }else{

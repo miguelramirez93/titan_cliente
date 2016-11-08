@@ -1,0 +1,70 @@
+<h1> {{ title}} </h1>
+<form class="form-horizontal ng-pristine ng-valid" name="form">
+  <!--Nombre-->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Nombre</label>
+    <div class="col-sm-10">
+      <input class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+      style="width:70%" type="text" size="8" ng-model="nombre"></input>
+    </div>
+  </div>
+
+  <!--Descripción-->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Descripción </label>
+    <div class="col-sm-10">
+      <textarea class="form-control ng-pristine ng-untouched ng-valid ng-empty" rows="4" cols="50" ng-model="descripcion"></textarea>
+    </div>
+  </div>
+
+  <!-- Categoría -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Categoría </label>
+    <div class="col-sm-10">
+      <select ng-model="id_categoria">
+        <option ng-repeat="categorias in categoria" value="{{categorias.Id}}" > {{categorias.Nombre}} </option>
+      </select>
+    </div>
+  </div>
+
+  <!--Tipo -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Tipo </label>
+
+    <div class="col-sm-10">
+      <select ng-model="tipo">
+        <option value="Esporadica" > Esporadica </option>
+        <option value="Periodica"> Periodica </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Naturaleza -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Naturaleza </label>
+    <div class="col-sm-10">
+      <label class="radio-inline" style="margin-left: 10px;">
+        <input type="radio" name="optradio" value="porcentaje" ng-model="naturaleza"> Porcentaje </label>
+      <label class="radio-inline">
+        <input type="radio" name="optradio" value="fijo" ng-model="naturaleza"> Fijo </label>
+    </div>
+  </div>
+
+  <!-- Proveedor -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Proveedor </label>
+
+    <div class="col-sm-10">
+      <select ng-model="id_proveedor">
+        <option ng-repeat="proveedores in proveedor" value="{{proveedores.NumDocumento}}" > {{proveedores.Descripcion}} </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 pull-right">
+    <button class="btn" >Cancelar</button>
+    <button class="btn" ng-click="guardar()">Registrar</button>
+    </div>
+  </div>
+</form>

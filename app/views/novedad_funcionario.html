@@ -1,0 +1,103 @@
+<h1> Novedad a aplicar </h1>
+<form class="form-horizontal ng-pristine ng-valid" name="form">
+  <!--Funcionario -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Buscar Funcionario (CC)</label>
+    <div class="col-sm-10">
+      <input class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="cedulaFuncionario"
+      style="width:70%" type="text" size="6"></input>
+      <button class="btn" alue="Activa" ng-click="buscarFuncionario()"> Buscar </button>
+    </div>
+  </div>
+
+  <!-- nombre funcionario -->
+  <div class="form-group">
+  <label class="col-sm-2 control-label" > FUNCIONARIO </label>
+    <div class="col-sm-10">
+      <p> {{ funcionario }} </p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <!-- Trigger the modal with a button -->
+  <button class="btn" data-toggle="modal" data-target="#modalNovedades"> Buscar novedad </button>
+  <div class="form-group">
+  <label class="col-sm-2 control-label" > NOVEDAD </label>
+    <div class="col-sm-10">
+      <p>  {{nombre_novedad}} </p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalNovedades" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 120%;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Seleccione la novedad</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th ng-repeat="(key,item) in novedad[1]" ng-if="!$first"> {{ key | uppercase }} </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="(key,data) in novedad" ng-if="!$first" ng-model="id_novedad">
+                <td ng-repeat="(key,value) in data" ng-if="!$first"> {{value}} </td>
+                <td>
+                  <button class="btn btn-default" ng-click="imprimir(data.Id, data.Nombre)" data-dismiss="modal"> Seleccionar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal"> Cerrar </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Estado-->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Estado </label>
+    <div class="col-sm-10">
+      <select ng-model="estado">
+        <option value="Activo"> Activo </option>
+        <option value="Inactivo"> Inactivo </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Vigencia -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Vigencia </label>
+    <div class="col-sm-10">
+      <input class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="vigencia" style="width:70%" type="text" size="8"></input>
+    </div>
+  </div>
+
+  <!--Valor -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" > Valor </label>
+    <div class="col-sm-10">
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="valor" style="width:40%" type="text" ></input>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-8 pull-right">
+    <button class="btn" >Cancelar</button>
+    <button class="btn" ng-click="guardar()">Registrar</button>
+    </div>
+  </div>
+</form>

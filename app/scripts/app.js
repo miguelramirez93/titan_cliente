@@ -55,6 +55,16 @@ angular
         controller: 'PreliquidacionDetalleCtrl',
         controllerAs: 'preliquidaciondetalle'
       })
+      .when('/novedad', {
+        templateUrl: 'views/novedad.html',
+        controller: 'NovedadCtrl',
+        controllerAs: 'novedad'
+      })
+      .when('/novedad_funcionario', {
+        templateUrl: 'views/novedad_funcionario.html',
+        controller: 'NoverdadFuncionarioCtrl',
+        controllerAs: 'novedadFuncionario'
+      })
       .otherwise({
         redirectTo: '/'
       });

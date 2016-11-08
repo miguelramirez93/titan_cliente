@@ -43,16 +43,12 @@
 
             <ul class="nav navbar-nav" id="menu">
               <li class="active"><a href="#/">Inicio</a></li>
-              <li class="dropdown"><a href="#/nomina_registro" class="dropdown-toggle" data-toggle="dropdown">Nomina <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#/nomina_registro">Registrar Nomina</a></li>
-                  <li><a href="#/nomina_listar">Listar Nominas</a></li>
-                </ul>
+              <li class="dropdown"><a href="#/nomina_registro" class="dropdown-toggle" "#/nomina_registro" data-toggle="dropdown">Nomina </a>
               </li>
               <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Novedades <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#/novedad_registro">Registrar Novedad</a></li>
-                  <li><a href="#/novedad_tercero">Asignar Novedad</a></li>
+                  <li><a ng-href="#/novedad">Registrar novedad</a></li>
+              <li><a ng-href="#/novedad_funcionario">Registrar novedad tercero</a></li>
                 </ul>
               </li>
             </ul>
@@ -108,6 +104,8 @@
         <script src="scripts/controllers/nomina_registro.js"></script>
         <script src="scripts/controllers/preliquidacion_registro.js"></script>
         <script src="scripts/controllers/preliquidacion_detalle.js"></script>
+        <script src="scripts/controllers/novedad.js"></script>
+        <script src="scripts/controllers/noverdad_funcionario.js"></script>
         <!-- endbuild -->
 </body>
 </html>
